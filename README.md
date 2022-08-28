@@ -2,7 +2,9 @@
 
 The gossip-logger plugin for core-lightning allows backing up historic gossip data for a later 
 analysis or ml processing. Nodes and channels gossip gets timestamped and stored in bigquery
-exclusively (other storing options tbd) as an extended schema (like nodes and channel tables).
+exclusively (other storing options tbd) as an extended schema (original tables with timestamp).
+
+
 
 ## Installation
 
