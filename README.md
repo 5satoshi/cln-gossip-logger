@@ -16,6 +16,8 @@ lightningd --plugin=/path/to/plugin/directory/cln-gossip-logger.py
 Important:
  - The `cln-gossip-logger.py` must have executable permissions:
    `chmod a+x cln-gossip.logger.py`
+ - Make sure you have your gcp app credentials set: 
+   `export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json;`
 
 ### Automatic plugin initialization
 
