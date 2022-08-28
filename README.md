@@ -2,7 +2,7 @@
 
 The gossip-logger plugin for core-lightning allows backing up historic gossip data for a later 
 analysis or ml processing. Nodes and channels gossip gets timestamped and stored in bigquery
-exclusively (other storing options tbd) as an extended the schema as known from the nodes and channel tables.
+exclusively (other storing options tbd) as an extended schema (like nodes and channel tables).
 
 ## Installation
 
@@ -18,6 +18,7 @@ Important:
    `chmod a+x cln-gossip.logger.py`
  - Make sure you have your gcp app credentials set: 
    `export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json;`
+ - This plugin works for SQLITE3 database (the default) only
 
 ### Automatic plugin initialization
 
