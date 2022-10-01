@@ -20,7 +20,7 @@ root.addHandler(handler)
 
 @plugin.hook('db_write')
 def on_db_write(writes, data_version, plugin, **kwargs):
-    
+    plugin.log(writes,level="warn")
     if True:
         return {"result": "continue"}
     else:
@@ -28,21 +28,33 @@ def on_db_write(writes, data_version, plugin, **kwargs):
 
 @plugin.init()
 def on_init(options, **kwargs):
-        plugin.log(
-            "cl-gossip-logger initiated",
-            level="warn"
-        )
+        plugin.log("cl-gossip-logger initiated",level="warn")
 
+def kill(message: str):
+    plugin.log(message)
+    time.sleep(1)
+    # Search for lightningd in my ancestor processes:
+    procs = [p for p in psutil.Process(os.getpid()).parents()]
+    for p in procs:
+        if p.name() != 'lightningd':
+            continue
+        plugin.log("Killing process {name} ({pid})".format(
+            name=p.name(),
+            pid=p.pid
+        ))
+        p.kill()
+    
+    # Sleep forever, just in case the master doesn't die on us...
+    while True:
+        time.sleep(30)
 
 if __name__ == "__main__":
-    # Did we perform the first write check?
-    plugin.initialized = False
-    if not os.path.exists("cln-gossip-logger.lock"):
-        kill("Could not find cln-gossip-logger.lock in the lightning-dir")
-
+    #if not os.path.exists("cln-gossip-logger.lock"):
+    #    kill("Could not find cln-gossip-logger.lock in the lightning-dir")
+    
     try:
-        d = json.load(open("cln-gossip-logger.lock", 'r'))
-        destination = d['gbq-destination']
+        #d = json.load(open("cln-gossip-logger.lock", 'r'))
+        #destination = d['gbq-destination']
         plugin.run()
     except Exception:
         logging.exception('Exception while initializing cln-gossip-logger plugin')
