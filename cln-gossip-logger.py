@@ -20,7 +20,7 @@ root.addHandler(handler)
 
 @plugin.hook('db_write')
 def on_db_write(writes, data_version, plugin, **kwargs):
-    plugin.log("hello im in the on_db_write hook",level="warn")
+    plugin.log("hello im in the on_db_write hook, writes array size:" + len(writes),level="warn")
     if True:
         return {"result": "continue"}
     else:
