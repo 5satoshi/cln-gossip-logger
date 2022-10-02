@@ -32,6 +32,18 @@ If the plugin starts correctly you should be able to call
 ~lightning-cli gossip-logger-stats~ and see that it is starting to store
 messages in the database.
 
+
+** Configuration
+
+cln-gossip-logger requires configuration parameters that define the bigquery storage location.
+The configuration file gossip-logger.conf must exist in your plugin folder.
+
+```
+[bigquery]
+nodes = version_1.nodes
+channels = version_1.channels
+```
+
 ** Command line
 The command line tool ~gossip-logger-cli~ can be used to manage the
 databases, manage backups and manage snapshots:
