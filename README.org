@@ -1,8 +1,9 @@
 #+TITLE: gossip-logger: Archiving the Lightning Network
 
 * About
-The gossip-logger plugin aims to provide tools to archive the Lightning
-Network gossip messages and to work with the archived messages.
+The gossip-logger plugin is a fork of the historian plugin. It aims 
+to provide tools to archive the Lightning Network gossip messages and 
+to work with the archived messages.
 
 The plugin tails the ~gossip_store~ file used by ~lightningd~ to
 persist gossip messages across restarts. The plugin monitors the file
