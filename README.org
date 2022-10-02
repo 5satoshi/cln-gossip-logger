@@ -98,8 +98,3 @@ If you just want to iterate through messages in a file, there are the
 commands that will print each hex-encoded message on a line to
 ~stdout~.
 
-* Projects
-These projects make use of the gossip-logger plugin:
-
- - [[https://github.com/lnresearch/topology][lnresearch/topology]] uses the backups as dataset to enable research
-   on the topological evolution of the network.
