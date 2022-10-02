@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cln-historian"
+name = "cln-gossip-logger"
 version = "0.1.0"
 description = "A plugin to store historical Lightning Network gossip in a database."
 authors = ["Christian Decker <decker@blockstream.io>"]

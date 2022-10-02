@@ -181,13 +181,13 @@ class Flusher(Thread):
 @plugin.init()
 def init(plugin, configuration, options):
     print(options)
-    engine = create_engine(options['historian-dsn'], echo=False)
+    engine = create_engine(options['gossip-logger-dsn'], echo=False)
     Base.metadata.create_all(engine)
     plugin.engine = engine
     Flusher(engine).start()
 
 
-@plugin.method('historian-stats')
+@plugin.method('gossip-logger-stats')
 def stats(plugin):
     engine = plugin.engine
     session_maker = sessionmaker(bind=engine)
@@ -203,8 +203,8 @@ def stats(plugin):
 
 
 plugin.add_option(
-    'historian-dsn',
-    'sqlite:///historian.sqlite3',
+    'gossip-logger-dsn',
+    'sqlite:///gossip-logger.sqlite3',
     "SQL DSN defining where the gossip data should be stored."
 )
 

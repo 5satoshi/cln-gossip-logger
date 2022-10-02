@@ -9,7 +9,7 @@ from gossipd import parse
 import click
 import bz2
 
-default_db = "sqlite:///$HOME/.lightning/bitcoin/historian.sqlite3"
+default_db = "sqlite:///$HOME/.lightning/bitcoin/gossip-logger.sqlite3"
 
 
 @contextmanager

@@ -3,7 +3,7 @@ import os
 import subprocess
 
 
-plugin = os.path.join(os.path.dirname(__file__), 'historian.py')
+plugin = os.path.join(os.path.dirname(__file__), 'gossip-logger.py')
 
 
 def test_start(node_factory):

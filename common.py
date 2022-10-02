@@ -15,7 +15,7 @@ load_dotenv()
 Base = declarative_base()
 default_db = os.environ.get(
     "HIST_DEFAULT_DSN",
-    "sqlite:///$HOME/.lightning/bitcoin/historian.sqlite3"
+    "sqlite:///$HOME/.lightning/bitcoin/gossip-logger.sqlite3"
 )
 
 

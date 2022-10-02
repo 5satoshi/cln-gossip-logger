@@ -14,7 +14,7 @@ def db():
 @click.argument('source', type=str)
 @click.argument('destination', type=str, default=default_db)
 def merge(source, destination):
-    """Merge two historian databases by copying from source to destination.
+    """Merge two gossip-logger databases by copying from source to destination.
     """
 
     meta = {
